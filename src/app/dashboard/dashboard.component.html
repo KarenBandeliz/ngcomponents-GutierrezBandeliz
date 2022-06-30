@@ -1,1 +1,27 @@
-<p>dashboard works!</p>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<body>
+<nav class="navbar">
+    <div class="container-fluid">
+    <a class="navbar-brand">
+        Lista de estudiantes
+    </a>
+    </div>
+</nav>
+<div>
+<ul>
+    <li *ngFor ="let lista of Lista">
+    {{lista.nombre}} -Calificación: {{lista.calificacion}}
+    </li>
+</ul>
+</div>
+<div class="button">
+    <button (click)="Aprobado()">Si tienes más de 6 de calificación</button>
+    <button (click)="Reprobado()">Si tienes 5 o menos de calificación</button>
+    </div>
+    <div [ngClass]="show ? 'aprobado' : 'reprobado'">
+        <p *ngIf="!show" >{{showtitle | uppercase}}</p>
+        <p *ngIf="show" >{{showtitle | uppercase}}</p>
+    </div>
+</body>
+
